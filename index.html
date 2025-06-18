@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Parafia pw. Św. Andrzeja Apostoła w Borowie – ogłoszenia, Msze Święte, wydarzenia parafialne.">
+  <title>Parafia Borów - Strona Główna</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Open+Sans&display=swap" rel="stylesheet">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      color: #3e2f1c;
+      background-color: #fdfcf9;
+    }
+
+    header {
+      background-color: #e0c9a6;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      margin: 0;
+    }
+
+    nav {
+      display: flex;
+      gap: 1rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #3e2f1c;
+      font-weight: bold;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #a67c3d;
+      transform: scale(1.1);
+    }
+
+    .hamburger {
+      display: none;
+      font-size: 2rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #3e2f1c;
+    }
+
+    .mobile-nav {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background-color: #e0c9a6;
+      padding: 1rem;
+      z-index: 1000;
+    }
+
+    .mobile-nav a {
+      margin: 0.5rem 0;
+    }
+
+    .show {
+      display: flex !important;
+    }
+
+    .hero {
+      position: relative;
+      background-image: url('kosciol.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0, 0, 0, 0.45);
+    }
+
+    .hero-content {
+      position: relative;
+      text-align: center;
+      z-index: 2;
+      padding: 1.5rem 3rem;
+      max-width: 90%;
+      color: white;
+    }
+
+    .hero-content::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 100%;
+      transform: translateY(-50%);
+      background: linear-gradient(to top, rgb(40, 30, 18), rgba(0, 0, 0, 0));
+      z-index: -1;
+      pointer-events: none;
+      filter: blur(12px);
+    }
+
+    .hero-content h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+    }
+
+    .hero-content a {
+      background: #fff;
+      color: #3e2f1c;
+      padding: 0.8rem 1.9rem;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .hero-content a:hover {
+      background-color: #e0c9a6;
+      transform: translateY(-3px);
+    }
+
+    .nawigacja-wiernych {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      background-color: #f2e8dc;
+      padding: 2rem 1rem;
+    }
+
+    .nawigacja-wiernych a {
+      background-color: #d8b88e;
+      color: #3e2f1c;
+      text-decoration: none;
+      margin: 0.5rem;
+      padding: 1rem 1.5rem;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .nawigacja-wiernych a:hover {
+      background-color: #cba97a;
+      transform: translateY(-3px);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .section {
+      padding: 3rem 1.5rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .section h3 {
+      font-size: 1.8rem;
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 1rem;
+    }
+
+    .footer {
+      background-color: #3e2f1c;
+      color: white;
+      text-align: center;
+      padding: 1rem 1rem;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+      }
+
+      .hamburger {
+        display: block;
+      }
+
+      .hero-content h2 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Parafia pw. Św. Andrzeja Apostoła w Borowie</h1>
+    <button class="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="mobileNav" onclick="toggleMobileNav(this)">☰</button>
+    <nav>
+      <a href="index.html">Strona Główna</a>
+      <a href="kontakt.html">Kontakt</a>
+      <a href="galeria.html">Galeria</a>
+    </nav>
+    <div class="mobile-nav" id="mobileNav">
+      <a href="index.html">Strona Główna</a>
+      <a href="kontakt.html">Kontakt</a>
+      <a href="galeria.html">Galeria</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Witamy na stronie naszej parafii</h2>
+    </div>
+  </section>
+
+  <section class="nawigacja-wiernych">
+    <a href="zzyciaparafii.html">Z życia parafii</a>
+    <a href="ogloszeniaparafialne.html">Ogłoszenia parafialne</a>
+    <a href="msze.html">Msze św. i nabożeństwa</a>
+    <a href="sakramenty.html">Sakramenty święte</a> 
+  </section>
+
+  <section id="o-parafii" class="section">
+    <h3>O Parafii</h3>
+    <p>Parafia pw. św. Andrzeja Apostoła w Borowie należy do diecezji sandomierskiej i jest ważnym ośrodkiem życia religijnego dla mieszkańców tej części regionu. Świątynia jest poświęcona św. Andrzejowi Apostołowi, który jest jej patronem i przewodnikiem duchowym.
+    Historia parafii sięga XVIII wieku, kiedy to rozpoczęto budowę pierwszego kościoła na tym terenie. Przez wieki świątynia była wielokrotnie odnawiana i rozbudowywana, co sprawiło, że obecny kościół łączy w sobie elementy różnych stylów architektonicznych. Wnętrze kościoła zdobią cenne zabytki sakralne oraz liczne dzieła sztuki, które świadczą o głębokiej tradycji religijnej i kulturowej parafii.
+    Parafia w Borowie jest miejscem nie tylko modlitwy, ale również spotkań wspólnoty, organizacji wydarzeń duszpasterskich i kulturalnych. Aktywna działalność duszpasterska oraz zaangażowanie wiernych przyczyniają się do umacniania wiary i budowania więzi między mieszkańcami.</p>
+  </section>
+
+  <section id="o-patronie" class="section">
+    <h3>O Patronie</h3>
+    <p>
+    Patronem kościoła w Borowie jest św. Andrzej Apostoł — jeden z dwunastu apostołów Jezusa Chrystusa. Jego wspomnienie liturgiczne przypada na 30 listopada. Św. Andrzej jest uważany za patrona rybaków, podróżników oraz Grecji, a także wielu miejsc i parafii na całym świecie. Jego postać symbolizuje odwagę w głoszeniu Ewangelii oraz wierność Chrystusowi aż po męczeństwo.
+    Kościół w Borowie, pod jego wezwaniem, jest jedną z najstarszych świątyń drewnianych w regionie. Powstał prawdopodobnie w 1662 roku i od tamtej pory jest ważnym miejscem modlitwy i spotkań lokalnej społeczności.
+    </p>
+  </section>
+
+  <footer class="footer">
+    <p>© 2025 Parafia pw. Św. Andrzeja Apostoła w Borowie</p>
+  </footer>
+
+  <script>
+    function toggleMobileNav(button) {
+      const nav = document.getElementById('mobileNav');
+      const isVisible = nav.classList.toggle('show');
+      button.setAttribute('aria-expanded', isVisible.toString());
+    }
+  </script>
+
+</body>
+</html>
